@@ -1,0 +1,5592 @@
+
+
+/* -----aqui cargamos las fuentes que he utilizado y no son de goggle font */
+@font-face{
+  font-family: blair;
+  src: url(../fonts/Blair\ ITC\ Medium.otf)
+}
+
+@font-face{
+  font-family: flama;
+  src: url(../fonts/FlamaCondensed-Bold.ttf)
+}
+@font-face{
+  font-family: monserrat;
+  src: url(../fonts/Montserrat-Bold.ttf)
+}
+@font-face {
+  font-family: montsfina;
+  src: url(../fonts/Montserrat-Light.ttf);
+}
+
+
+/* Aquí definimos las Custom properties */
+:root {
+    /* colores principales */
+    --naraja: rgb(246,140,104);
+    --rosa: rgb(229,90,123);
+    --verde: rgb(158,196,118);
+    --azul: rgb(0,101,128);
+    /* colores segundarios */
+    --berengena: rgba(154,52,79,0.8);
+    --turquesa: rgba(92,188,198,0.8);
+    --gris: rgba(166,155,149,0.8);
+    /* Tipografía */
+    --tipo-principal: monserrat;
+    --tipo-secundaria: 'Gloock', serif;
+    --tipo-tercera: 'poppins', serif;
+    --tipo__cuarta:montsfina;
+    
+  }
+  
+  /* Reseteamos los margin y paddings de todas las etiquetas */
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    vertical-align: baseline;
+  }
+  
+  /* Evitamos problemas con las imagenes */
+  img, picture, video, iframe, figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* opcional */
+    -o-object-fit: cover;
+       object-fit: cover;
+    /* opcional */
+    -o-object-position: center center;
+       object-position: center center;
+  }
+  
+  /* Reseteamos los enlaces para funcionar como cajas... */
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+  }
+  
+  /* ... excepto los que se encuentran en párrafos */
+  p a {
+    display: inline;
+  }
+  
+  /* Quitamos los puntos de los <li> */
+  li {
+    list-style-type: none;
+  }
+  
+  /* Configuramos anclas suaves */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Desactivamos estilos por defecto de las principales etiquetas de texto */
+  h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Evitamos problemas con los pseudoelementos de quotes */
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none;
+  }
+  
+  /* Configuramos el texto que seleccionamos */
+  ::-moz-selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+  }
+  ::selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+  }
+  
+  /* Nivelamos problemas de tipografías y colocación de formularios */
+  form, input, textarea, select, button, label {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+    /* opcional */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+  }
+  
+  /* Reseteamos las tablas */
+  table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  /* Evitamos problemas con los SVG */
+  svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+  }
+  
+  
+  /* Configuramos la tipografía para toda la web */
+  .body {
+    min-height: 100vh;
+    font-size: 100%;
+   
+    /* opcional */
+    /* line-height: 1.4em; */
+    /* opcional */
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    /* opcional */
+   
+    /* opcional */
+    -webkit-font-smoothing: antialiased;
+    /* opcional */
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url(../img/fondo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  /* -----------primera seccion------------- */
+  .landing{
+    width: 100%;
+    height: 100vh;   
+    display: flex;
+    flex-direction: column;
+    
+  }
+  /* ------header------------- */
+  .header{
+    width: 100%;
+    height: 12vh;
+    padding-top: 1vh;
+    display: flex;
+    justify-content:space-between;
+    
+    align-items: center;
+   
+   
+  }
+  /* --logo-- */
+  .header__figure{
+    width: 20vw;
+    margin-left: 5vw;
+  }
+  /* ---nav---- tiene un display para distrubuir los elementos*/
+  .header__nav{
+    width: 60%;
+    height: 20vh;
+    display: flex;                  
+    justify-content: space-between;
+    margin-right: 0;
+    
+    
+  }
+  /* ----lista para los enlaces---- */
+  .nav__ul{
+    width:100%;
+    padding-right: 5vw;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+  
+    flex-wrap: wrap;
+   
+  }
+  
+  /* ---elementos de la lista al hacer hover----- */
+  .nav__li:hover{
+    color: var(--naraja);
+    
+  }
+  /* ---el enlace que esta activo en cada momento---- */
+  .nav__li .active{
+    color: var(--naraja);
+  }
+  /* ------elementos de la lista-------- */
+  .nav__li{ 
+    margin: 0.5em;
+    text-align: center; 
+    font-size: 2em; 
+    font-family:var(--tipo-principal);
+    font-weight: 700;
+    color: var(--azul);
+    
+  }
+  /* ---------menu hamburguesa--------- esta en display none en vista ordenador */
+  .hamburger{
+    display: none;
+    position:fixed;
+    background-color:transparent;
+    left:0;
+    top:0;
+    height:30px;
+    width:30px;
+    padding:20px 20px;
+    -webkit-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
+    -webkit-transition:-webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition:transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    z-index:1002;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+  }
+  /* -------menu cuando esta activo------- */
+  .hamburger.is-active{
+    background-color:transparent;
+  }
+  /* --------cada una de las rayas del menu hamburguesa--------- */
+  .layer{
+    background:var(--azul);
+    margin-bottom:4px;
+    border-radius:2px;
+    width:28px;
+    height:4px;
+    opacity:1;
+    -webkit-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
+    -webkit-transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  }
+  /* ---------cada una de las rayas que forman el enlace del menu cuando estan hover o activas--------- */
+  .hamburger:hover .-top{
+    -webkit-transform:translateY(-100%);
+    -ms-transform:translateY(-100%);
+    transform:translateY(-100%);
+  }
+  .hamburger:hover .-bottom{
+    -webkit-transform:translateY(50%);
+    -ms-transform:translateY(100%);
+    transform:translateY(100%);
+    }
+  .hamburger.is-active .-top{
+    -webkit-transform:translateY(200%) rotate(45deg) ;
+    -ms-transform:translateY(200%) rotate(45deg) ;
+    transform:translateY(200%) rotate(45deg) ;
+  }
+  .hamburger.is-active .-mid{
+    opacity:0;
+  }
+  .hamburger.is-active .-bottom{
+    -webkit-transform:translateY(-200%) rotate(135deg) ;
+    -ms-transform:translateY(-200%) rotate(135deg) ;
+    transform:translateY(-200%) rotate(135deg) ;
+  }
+  /* --------el menu  cuando esta abierto------- */
+  .menuppal.is_active{
+    transform: translate3d(0px, 0px, 0px);
+  }
+  /* el menu abierto */
+  .menuppal{
+     background-color:rgba(255, 255, 255, 0.733);
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      overflow-y: scroll;
+      position: fixed;
+      top: 0;
+      transform: translate3d(0px, -100%, 0px);
+      transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+      width: 100%;
+      z-index: 1001;
+  }
+  /* ----------cada uno de los enlaces esta dentro de una lista  */
+  .menuppal ul{
+    margin:0;padding:0;
+  }
+  .menuppal ul li { 
+    list-style: none;
+    text-align:center;
+    font-family:var(--tipo-principal);
+    color:white;
+    font-size:1.5rem;
+    line-height:3em;
+    height:3em;
+    color:var(--naraja);
+    text-transform:none;
+    font-weight:bold;
+  }
+  /* cada elemento de lalista tiene un enlace */
+  .menuppal ul li a{
+    text-decoration:none;
+    color:var(--azul);
+  }
+  /* los enlaces al hacer hover */
+  .menuppal ul li a:hover{
+    text-decoration:none;
+    color:var(--naraja);
+  }
+  /* ----termina mmenu hamburguesa--------- */
+  /* -------landing--------- */
+  .landing{
+    width: 100%;
+    height: 120vh;
+    position: relative;
+  }
+  /* -------primer contenedor animado con un texto en su interior------ */
+  .landing__div1{
+    position: absolute;
+    width: 50vw;   
+    margin-left: 7vW;
+    top: 25vh;
+    animation: caer 1s; 
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    opacity: 1;
+    transition: 1s;
+  }
+  /* ------la animacion que se activa con una funcion java script con unos set interval y un set out---------- */
+  @keyframes caer {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:10vh ;
+    }
+    100%{
+      top: 25vh;
+    }  
+  }
+ 
+      
+
+      
+ /* ------segundo contenedor animado que contiene el segundo texto------------  */
+  .landing__div2{
+    position: absolute;
+    width: 50vw;   
+    margin-left: 7vW;
+    top: 38vh;
+    animation: caer2 1s; 
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+   
+    transition: 1s;
+   opacity:1;
+  }
+  /* esta es la segunda animacion que llega más abajo------- */
+  @keyframes caer2 {
+    0%{
+      top: 0;
+      
+    }
+    50%{
+      top:25vh ;
+      
+    }
+    100%{
+      top: 38vh;
+    }
+    }
+    
+      
+    
+  /* --------trecer contenedor con su animación correspondiente-------- */
+  .landing__div3{
+    position:absolute;
+    width: 50vw;   
+    margin-left: 7vW; 
+    top: 65vh;
+    animation: caer3 1s; 
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    
+    opacity: 1;
+    transition: 1s;
+  }
+  /* ----las tres animaciones son identicas solo cambia el top para que queden una debajo de la otra */
+  @keyframes caer3 {
+    0%{
+     top: 0;
+      
+    }
+    50%{
+      top:25vh ;
+      
+    }
+    100%{
+     top: 65vh;
+    }
+    }
+  /* -------por fin la landing que contiene la palabra absoluto que es la que queda al final de la animación */
+  .landing__titulo{
+    position: relative;
+    width: 50vw;   
+    margin-left: 10vW;
+    margin-top: 70vh;
+   transition: 1.5s;
+    opacity: 0;
+  }
+  /* la palabra absoluto el tamaño ,color ,etc */
+  .landing__h1{
+    font-family:var(--tipo-principal);
+    font-size: 9em;    
+    color:var(--azul);
+    line-height: 1;
+  }
+  /* -------este es el estilo de los textos animados-------- */
+  .landing__h2{
+    font-family:var(--tipo__cuarta);
+    font-size: 8em; 
+    color:var(--azul);
+    line-height: 1;
+  }
+  /* -------objeto svg------------- */
+
+  /* -----he utilizado un objeto svg que he separado en pahth para poder hacer una animación con ellos */
+  .cls-1{
+    fill:#006580;
+    opacity:0;
+    stroke-width:0px;
+    transition: 2s;
+  }
+  .cls-2{
+    fill:#ab9b95;
+    opacity:0;
+    stroke-width:0px;
+    transition: 2s;
+  }
+  .cls-3{
+    fill:#5cbcc6;
+    opacity:0;
+    stroke-width:0px;
+    transition: 2s;
+  }
+  .cls-4{
+    fill:#f68c68;
+    opacity:0;
+    stroke-width:0px;
+    transition: 2s;
+  }
+  .cls-5{
+    fill:#9a344f;
+    opacity:0;
+    stroke-width:0px;
+    transition: 2s;
+  }
+  .cls-6{
+    fill:#e55c7b;
+    opacity:0;
+    stroke-width:0px;
+    transition: 2s;
+  }
+  .cls-7{
+    fill:#9ec476;
+    opacity:0;
+    stroke-width:0px;
+    transition: 2s;
+  }
+  /* -------esta es la div que contiene esl objeto svg en posicion absoluta */
+ 
+  .landing__svg{
+    width: 30vw;
+    position: absolute;
+    top: 18vh;
+    right: 10VW;
+   animation-name:float ;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-timing-function: ease-in-out;
+}
+
+
+/* ---------seccion info---------- */
+/* --------esta es la div con texto de color rosa que aparece poco a poco */
+.info__div{
+  background-color:  rgb(229,90,123,0.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--rosa);
+  margin-left: 30%;
+  margin-bottom: 7vh;
+  width: 40%;
+  height: auto;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  animation: difuminada 8s; 
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  
+  
+  
+}
+/* ----tiene una animacion que he llamado difuminado */
+@keyframes difuminada {
+  0%{
+    opacity: 0;
+  }
+ 
+  100%{
+    opacity: 1; 
+    
+  }
+
+}
+/* --------estos son los estilos de cada uno de sus elementos */
+.info__h2{
+  text-align: left;
+  color: white;
+  font-family:var(--tipo-principal);
+  font-size: 2.3em;
+  line-height: 1
+}
+.info__h3{
+  width: 30vw;
+  text-align: left;
+  color: white;
+  font-family: var(--tipo-principal);
+  font-size: 1.5em;
+  line-height: 1;
+}
+.info__parrafo{
+  color: white;
+  font-size: 1.7em;
+}
+
+
+/* --------seccion proyectos---------- */
+/* ---seccion proyectos con posicion relativa */
+.proyectos{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+/* ----estilos tipográficos del titilo------- */
+.proyecto__titulo{
+  text-align: center;
+  padding-top: 10vw;
+  font-family: var(--tipo-principal);
+  font-size: 3em;
+  color: var(--azul);
+}
+/* esta es la caja que contiene las cards con su display y wrap para hacerlo más responsivo */
+.proyectos__galeria{  
+  max-width: 100%;
+ 
+  padding: 7% 15%;
+ 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  z-index: 4;
+  
+
+}
+/* las card con posicion relativa para super poner tanto la foto como el titulo y el .carab__enlace
+al hacer hover */
+.proyectos__card{ 
+  position: relative;
+  
+}
+/* div que contiene la foto */
+.card__div{
+  width: 400px;
+  height:400px;
+  overflow: hidden;
+  margin: 10px;
+
+  
+  
+ 
+}
+/* ---img------ */
+.galeria__img{
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  object-fit: cover;
+  
+}
+/* esta es la capa que se superpone al hacer hover  con posicion absoluta*/
+.proyectos__carab{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  transition: 1s;
+}
+/* estilos del titulo */
+.carab__h3{
+  color: white;
+  text-align: center;
+  font-family:var(--tipo-principal);
+  font-size: 2.7em;
+  font-weight: 700;
+}
+/* estilos del enlace que te lleva a un modal */
+.carab__enlace{
+  color:var(--naraja);
+  font-family:var(--tipo-tercera);
+  font-size: 2em;
+  opacity: 0;
+}
+/* enlace hover */
+.carab__enlace:hover{
+  color: white;
+}
+/* -----------modal--------- */
+
+/* ----modal que aparece lentamente al clickar en el enlace */
+.modal__open {
+	position: fixed;
+	
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+/* modal al cargar */
+.modal__open:target {
+	opacity:1;
+	pointer-events: auto;
+}
+/* ---ventana del modal y sus estilos */
+.modal__open > div {
+	width: 1200px;
+  height: 400px;
+	position: relative;
+	 margin: 10% auto; 
+	/* padding: 5px 20px 13px 20px; */
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+  -webkit-transition: opacity 400ms ease-in;
+-moz-transition: opacity 400ms ease-in;
+transition: opacity 400ms ease-in;
+}
+/* estilos del botton para cerrar el modal */
+.close {
+	background:white;
+	color: var(--azul);
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 50px;
+  height: 50px;
+	text-decoration: none;
+	font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  padding-top: .4em;
+	/* -webkit-border-radius: 12px;
+	-moz-border-radius: 12px; */
+	border-radius: 50%;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+/* boton close hover */
+.close:hover { background:var(--azul);
+  color: white;
+ }
+
+ /* aqui empieza el carrusel de fotos dentro del modal */
+ .carrusel{
+  width: 100%;
+  height: 61vh;
+ 
+
+  overflow-Y: hidden; 
+  
+  display: flex;
+ 
+  background-color: blue;
+
+}
+/* ---contenedor de las fotos con un height 3 veces mayor por que son tres fotos */
+.grande{
+  width: 100%;
+  height: 300%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: center;
+  transition: all .7s ease;
+  transform: translateY(-33.3%);
+
+}
+/* ---contenedor de cada imagen  */
+.img__div{
+  height:calc(100%/3);
+  min-width: 32vw;
+}
+/* tamaño de la imgen */
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+
+}
+/* div que contiene los puntos para avanzar las fotos */
+.puntos{
+  width: 150%;
+  height: 150%;
+ margin-top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--rosa);
+  gap: 5%;
+}
+/* ----cada uno de los botones para avanzar las fotos */
+.punto{
+  background-color: var(--rosa);
+  border: 1px solid white;
+  color: white;
+  list-style: none;
+  width: 2.7em;
+  height: 2.7em;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding:0.7em; 
+  border-radius: 50%;
+}
+/* el punto que esta en cada momento activo */
+.punto.activo{
+  background-color:white;
+  
+  color:var(--rosa);
+}
+
+/* -----al tenr varios modales he tenido que crear un carrusel distinto para cada modal con nombres distintos
+porque si no no funcionaba */
+.imagenes{
+  width: 100%;
+  height: 61vh;
+ 
+
+  overflow-Y: hidden; 
+  
+  display: flex;
+ 
+  background-color:var(--verde)
+
+}
+.fotos{
+  width: 100%;
+  height: 300%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: center;
+  transition: all .7s ease;
+  transform: translateY(-33.3%);
+
+}
+.puntos__dos{
+  width: 150%;
+  height: 150%;
+ margin-top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--verde);
+  gap: 5%;
+}
+.punto__dos{
+  background-color: var(--verde);
+  border: 1px solid white;
+  color: white;
+  list-style: none;
+  width: 2.7em;
+  height: 2.7em;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding:0.7em; 
+  border-radius: 50%;
+}
+.punto__dos.activo{
+  background-color:white;
+  
+  color: var(--verde);
+}
+.imagenes-dos{
+  width: 100%;
+  height: 61vh;
+ 
+
+  overflow-Y: hidden; 
+  
+  display: flex;
+ 
+  background-color:var(--naraja);
+
+}
+.fotos-dos{
+  width: 100%;
+  height: 300%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: center;
+  transition: all .7s ease;
+  transform: translateY(-33.3%);
+
+}
+.puntos-tres{
+  width: 150%;
+  height: 150%;
+ margin-top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--naranja);
+  gap: 5%;
+}
+.punto-tres{
+  background-color: var(--naranja);
+  border: 1px solid white;
+  color: white;
+  list-style: none;
+  width: 2.7em;
+  height: 2.7em;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding:0.7em; 
+  border-radius: 50%;
+}
+.punto-tres.activo{
+  background-color:white;  
+  color:var(--naraja);
+}
+
+
+/* -----cuando se hace hover a la card la car b con el titulo y el enlace se hace visible encima */
+.proyectos__card:hover .proyectos__carab{
+  background-color:rgba(0,101,128,.8);
+}
+.proyectos__card:hover .carab__enlace{
+  opacity: 1;
+}
+.proyectos__card:hover .galeria__img{
+  transform: scale(1.2);
+
+}
+
+
+/* --------seccion nosotros--------- */
+
+/* ----seccion nosotros con un display para distribuir sus elementos e una imagen de fondo que ocupa toda la seccion */
+.nosotros{
+
+  width: 100%;
+  height: auto;
+  background-image: url(../img/eventos.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  object-fit: cover;
+  
+  
+  
+}
+/* estos son los estilos delencabezado de la seccion */
+.nosotros__h2{
+  color: white;
+  text-align: center;
+  padding-top: 10vh;
+  font-family:var(--tipo-principal);
+  font-size: 3em;
+}
+/* esta es la div que contiene todas las tarjetas y que tiene un evento scroll en javascript */
+.nosotros__div{
+  width: 100%;
+  padding: 3% 5%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  animation-fill-mode: none;
+}
+/* ---esta es la animacion que entra por la izq y se coloca en su sitio */
+@keyframes mover {
+  0%{
+    transform: translateX(-80vw);
+
+  }
+  
+}
+/* ----primera tarjeta----- */
+.nosotros__primera{
+  width: 34rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color:  rgb(246,140,104,0.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--naraja);
+}
+
+/* ------estilos del h2 de las tarjetas------- */
+.nosotros__h3{
+  width: 15vw;
+  text-align: left;
+  color: white;
+  font-family:var(--tipo-principal);
+  font-size: 2.3em;
+  line-height: 1;
+}
+/* ----estilos del parrafo de las tarjetas------- */
+.nosotros__parrafo{
+  color: white;
+  font-size: 1.7em;
+}
+/* ------segunda tarjeta-------- */
+.nosotros__segunda{
+  width: 34rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color:  rgb(0,101,128,0.4);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--azul);
+}
+/* -------tercera tarjeta--------- */
+.nosotros__tercera{
+  width: 34rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color:  rgb(158,196,118,0.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--verde);
+}
+/* ------cuarta tarjeta-------- */
+.nosotros__cuarta{
+  width: 34rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color:  rgba(229,90,123,.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--rosa);
+}
+/* ------quinta tarjeta------- */
+.nosotros__quinta{
+  width: 34rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--turquesa);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--turquesa);
+}
+/* ------sexta tarjeta--------- */
+.nosotros__sexta{
+  width: 34rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgba(154,52,79,0.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--berengena);
+}
+/* -------enlace que nos lleva a la pg nosotros------- */
+.nosotros__enlace{
+  
+  color: white;
+  text-align: center;
+  font-family:var(--tipo-tercera);
+  font-size: 2em;
+  margin-bottom: 5%;
+}
+/* ----enlace  hover--------- */
+.nosotros__enlace:hover{
+  color: var(--rosa);
+}
+/* ----------seccion contacto---------- */
+
+/* ----seccion contacto con imagen de fondo que ocupa toda la seccion */
+.contacto{
+  /* background-image: url(../img/fondo2.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
+}
+/* ------la div que contiene todos los textox y el enlace boton */
+.contacto__div{
+  margin-bottom: 17vh;
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+ 
+  
+}
+/* -------estilos del parrafo------ */
+.contacto__parrafo{
+  font-family:var(--tipo-secundaria);
+  font-size: 4em;
+  line-height: 0;
+
+  margin-top: 5vh;
+  color:var(--naraja);
+ 
+ 
+}
+/* estilos h3------------ */
+.contacto__h3{
+  font-family: var(--tipo__cuarta);
+  font-size: 5em;
+  font-weight: 300;
+  margin-bottom: 3vh;
+  color: var(--rosa);
+  
+ 
+}
+/* -----estilos tipográficos del h2 */
+.contacto__h2{
+  margin-bottom: 3vh;
+  font-family: var(--tipo-principal);
+  font-size: 6.7em;
+  color: var(--azul);
+  line-height: 0;
+  
+}
+/* ----enlace convertido en boton y sus estilos */
+.contacto__boton{
+  margin-top: 7vh;
+  width: 20rem;
+  height: 7rem;
+  color:white;
+  background-color:  var(--rosa);
+  backdrop-filter: blur(4px); 
+  
+  border-radius: 10px 100px / 120px;
+  transition: 1.5s;
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 700;
+  font-size: 2.2em;
+  line-height: 1;
+  padding: 1em 1em;
+  text-align: center;
+  
+}
+/* -----enlace hover----- */
+.contacto__boton:hover{
+  color: var(--rosa);
+  background-color: white;
+  border: 1px solid var(--rosa);
+}
+/* -------slider--------- */
+.contenedor{
+  margin-top: 10vh;
+  width: 100%;
+  overflow: hidden;
+}
+/* ---slider que contiene los elementos moviles */
+.slider-contenedor{
+  width: 100%;
+  display: flex;
+}
+/* ------cada una de las div que contiene 5 logos y aparecen en pantalla y luego se van */
+.contenido-slider{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0;
+}
+/* ---temaño de los logotipos */
+.img{
+  width: 150px;
+}
+/* ---contenedor de los logotipos */
+.div{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* ---------footer------------ */
+
+/* ---seccion footer formada por dos div una contiene el logo y el nombre y la otra los iconos de redes sociales---- */
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: var(--azul);
+  height: auto;
+  gap: 5vh;
+  margin-top: 5%;
+}
+/* -----esta div contine el logo y el slogaan */
+.footer__div{
+  width: 45vw;
+  margin-top: 5vw;
+  margin-left: 7vw;
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+}
+/* contiene el logo-------- */
+.footer__figure{
+  width: 17vw;
+}
+/* ----estilos del slogan */
+.footer__h2{
+  color: white;
+  font-family:var(--tipo-principal);
+  font-size: 3.7em;
+  line-height: 1.5;
+  
+}
+
+/* ---contiene los iconos de las redes sociales----- */
+.footer__social{
+  margin-bottom: 5vh;
+  width: 35vw;
+  display: flex;
+  justify-content: space-around;
+}
+/* estilos de la lista que contiene los iconos */
+.social__ul{
+  width: 20vw;
+  display: flex;
+  justify-content: space-around;
+}
+/* color de los iconos */
+.bi{
+  fill: white;
+}
+/* -----------pg nosotros---------- */
+.main{
+  width: 100%;
+  height: auto;
+  padding-bottom: 10vh;
+   background-image: url(../img/eventos.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed; 
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
+.abaut{
+  margin-top: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+/* --------div de about que se desplaza desde arriba al cargar la pg------ */
+.abaut__div{
+  margin-top: 10vh;
+  width: 90vw;
+  padding: 3%;
+  background-color:rgba(255,255,255,.7) ;
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  white;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  animation: caer1 1.5s; 
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+
+}
+/* -------animacion dedesplazamiento desde arriba-------- */
+@keyframes caer1 {
+  0%{
+    transform: translateY(-500px);
+  }
+  50%{
+    transform: translateY(-250px);
+  }
+  100%{
+    transform: translateY(-0); 
+    
+  }
+
+}
+ /* ------estilos de titulo------- */
+ .abaut__h1{
+  color: white;
+  text-align: center;
+  font-family:var(--tipo-principal);
+  font-size: 4em;
+}
+/* -----estilos de parrafo-------- */
+.abaut__parrafo{
+  color: var(--azul);
+  font-family:var(--tipo-principal);
+  font-size: 1.7em;
+  font-weight: 500;
+  line-height: 2;
+
+}
+/* -----estilos de parrafo-------- */
+.abaut__h2{
+  text-align: left;
+  color:var(--azul);
+  font-family: 'Poppins', sans-serif;;
+  font-size: 3em;
+  line-height: 1;
+}
+ /* --------seccioon quehacemos------- */
+ .quehacemos{
+  margin-top: 20vh;
+  width: 100%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+}
+/* ---------titulo de quehacemos------------ */
+.quehacemos__h2{
+  color: white;
+  text-align: center;
+  padding-bottom: 5vh;
+  font-family:var(--tipo-principal);
+  font-size: 4em;
+  padding-top: 10vh;
+}
+/* -------div que se desplaza con un evento de scroll-------- */
+.quehacemos__div{
+ 
+  display: flex;
+  padding: 2%;
+  flex-wrap: wrap;
+  animation-fill-mode: none;
+  gap: 3rem;
+
+}
+/* --------tarjeta primera y sus estilos-------- */
+.quehacemos__primera{
+  width: 32rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color:  rgba(229,90,123,.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--rosa);
+}
+/* ---------segunda tarjeta y susu estilos--------- */
+.quehacemos__segunda{
+  width: 32rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color:  rgba(92,188,198,0.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--turquesa);
+}
+/* ------tercera tarjeta y sus estilos-------- */
+.quehacemos__tercera{
+  width: 32rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color:  rgba(154,52,79,0.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--berengena);
+}
+
+/* ----------titulo tarjeta-------- */
+.quehacemos__h4{
+  width: 15vw;
+  text-align: left;
+  color: white;
+  font-family:var(--tipo-principal);
+  font-size: 2.3em;
+  line-height: 1;
+}
+/* -------titulo parrafo-------- */
+.quehacemos__parrafo{
+  color: white;
+  font-size: 1.7em;
+}
+ /* --------seccion como trabajamos-------- */
+ .comotrabajamos{
+  padding: 5vw;
+
+  width: 90%;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+/* -------estilos titulo de seccion-------- */
+.comotrabajamos__h2{
+  color: white;
+  text-align: center;
+  padding-top: 10vh;
+  font-family:var(--tipo-principal);
+  font-size: 4em;
+  padding-bottom: 2em;
+}
+/* ------div animada con evento scroll--------- */
+.comotrabajamos__div{
+  width: 100%;
+
+  
+  display: flex;
+  justify-content: center;
+ 
+  gap: 3rem;
+  overflow-x:hidden;
+  flex-wrap: wrap;
+  animation-fill-mode: none;
+}
+/* ----animación que entra desde la izq y se coloca en su sitio------- */
+@keyframes mover {
+  0%{
+    transform: translateX(-700px);
+
+  }
+  
+}
+/* -----------primera tarjeta-------- */
+.comotrabajamos__primera{
+  width: 40rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3rem;
+  background-color:  rgb(246,140,104,0.7);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--naraja);
+}
+/* -------titulo-------- */
+.comotrabajamos__h3{
+  height: auto;
+  padding-top: 5%;
+  color: white;
+  font-family:var(--tipo-secundaria);
+  font-size: 5em;
+}
+/* --------titulo tarjetas-------- */
+.comotrabajamos__h4{
+  width: 15vw;
+  text-align: left;
+  color: white;
+  font-family: var(--tipo-principal);
+  font-size: 2.3em;
+  line-height: 1;
+}
+/* --------estilos parrafos-------- */
+.comotrabajamos__parrafo{
+  color: white;
+  font-size: 1.7em;
+}
+/* ------segunda tarjeta---------- */
+.comotrabajamos__segunda{
+  width: 40rem;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color:  rgb(0,101,128,0.4);
+  backdrop-filter: blur(7px);
+  border-radius: 8px;
+  border: 1px solid  var(--azul);
+}
+/* ---------enlace a pg inicio-------- */
+
+.comotrabajamos__enlace{
+  color: white;
+  text-align: center;
+  font-family:var(--tipo-tercera);
+  font-size: 2.7em;
+  padding-top: 10vh;
+}
+/* --------enlace hover---------- */
+.comotrabajamos__enlace:hover{
+  color: var(--rosa);
+}
+
+/* -----------------------pg trabajos-------------------------------- */
+ /* -----seccion proyectos-------- */
+  .proyectos{
+  position: relative;
+  width: 100%;
+  height: auto;
+} 
+.proyectos__titulo{
+  text-align: center;
+  padding-top: 10vw;
+  font-family: var(--tipo-principal);
+  font-size: 3em;
+  color: var(--azul);
+}
+/* esta es la caja que contiene las cards con su display y wrap para hacerlo más responsivo */
+.proyectos__galeria{  
+  max-width: 100%;
+ 
+  padding: 7% 15%;
+ 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  z-index: 4;
+  
+
+}
+
+/* --------cuarto carrusell---------- */
+.imagenes-tres{
+  width: 100%;
+  height: 61vh;
+ 
+
+  overflow-Y: hidden; 
+  
+  display: flex;
+ 
+  background-color:var(--turquesa);
+
+}
+.fotos-tres{
+  width: 100%;
+  height: 300%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: center;
+  transition: all .7s ease;
+  transform: translateY(-33.3%);
+
+}
+.puntos-cuatro{
+  width: 150%;
+  height: 150%;
+ margin-top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--turquesa);
+  gap: 5%;
+}
+.punto-cuatro{
+  background-color: var(--turquesa);
+  border: 1px solid white;
+  color: white;
+  list-style: none;
+  width: 2.7em;
+  height: 2.7em;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding:0.7em; 
+  border-radius: 50%;
+}
+.punto-cuatro.activo{
+  background-color:white;  
+  color:var(--turquesa);
+}
+/* -------quinto carrusell--------- */
+.imagenes-cuatro{
+  width: 100%;
+  height: 61vh;
+ 
+
+  overflow-Y: hidden; 
+  
+  display: flex;
+ 
+  background-color:var(--turquesa);
+
+}
+.fotos-cuatro{
+  width: 100%;
+  height: 300%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: center;
+  transition: all .7s ease;
+  transform: translateY(-33.3%);
+
+}
+.puntos-cinco{
+  width: 150%;
+  height: 150%;
+ margin-top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--gris);
+  gap: 5%;
+}
+.punto-cinco{
+  background-color: var(--gris);
+  border: 1px solid white;
+  color: white;
+  list-style: none;
+  width: 2.7em;
+  height: 2.7em;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding:0.7em; 
+  border-radius: 50%;
+}
+.punto-cinco.activo{
+  background-color:white;  
+  color:var(--gris);
+}
+/* sexto carrusell------------- */
+.imagenes-cinco{
+  width: 100%;
+  height: 61vh;
+ 
+
+  overflow-Y: hidden; 
+  
+  display: flex;
+ 
+  background-color:var(--gris);
+
+}
+.fotos-cinco{
+  width: 100%;
+  height: 300%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: center;
+  transition: all .7s ease;
+  transform: translateY(-33.3%);
+
+}
+.puntos-seis{
+  width: 150%;
+  height: 150%;
+ margin-top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--berengena);
+  gap: 5%;
+}
+.punto-seis{
+  background-color: var(--berengena);
+  border: 1px solid white;
+  color: white;
+  list-style: none;
+  width: 2.7em;
+  height: 2.7em;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding:0.7em; 
+  border-radius: 50%;
+}
+.punto-seis.activo{
+  background-color:white;  
+  color:var(--naraja);
+}
+
+
+
+
+/* ------------------pg contacto---------------- */
+.contacto__main{
+  width: 100%;
+  height: auto;
+  padding-bottom: 10vh;
+  /* background-image: url(../img/fondo2.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed; */
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+/* --------esta div cotiene cada uno de los bloques de texto----------- */
+.contacto__contenido{
+ 
+  padding: 5vh 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 5vh;
+  animation: opaca 2.3s; 
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  
+  
+}
+/* -------animación que hace que aparezca lentamente tocando la opacidad aplicada al contenido------ */
+@keyframes opaca {
+  0%{
+    opacity: 0;
+  }
+ 
+  100%{
+    opacity: 1; 
+    
+  }
+
+}
+/* -------titulo y sus estilos-------- */
+.contacto__h1{
+  font-family: monserrat;
+  font-size: 5em;
+  text-align: left;
+  color: var(--azul);
+}
+/* -----div que contiene la información de contacto-------- */
+.contacto__info{
+  padding-top: 15vh;
+  width:75vw;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  
+}
+/* ---------estilos tipográficos del h2----------- */
+.h2__info{
+  font-family:  'Gloock', serif;
+  font-size: 2.6em;
+  color: var(--azul);
+}
+/* -------estilos tipográficos del parrafo--------- */
+.parrafo__info{
+  width: 23vw;
+  font-family: 'poppins', serif;;
+  font-size: 1.5em;
+  color: var(--azul);
+}
+/* --------la parte más importante el enlace al mail de gra tamaño------------- */
+.enlace__info{
+  font-size: 6em;
+  color: var(--rosa);
+  text-align: center;
+}
+/* --------enlace a la pg inicio------------ */
+.contacto__enlace{
+  color:var(--azul);
+  text-align: center;
+  font-family:var(--tipo-tercera);
+  font-size: 2.7em;
+}
+/* enlace hover */
+.contacto__enlace:hover{
+  color: var(--rosa);
+}
+
+
+/* -------------pg consultas----------------------- */
+.titulo{
+  display: flex;
+  justify-content:space-between;
+ padding: 8%;
+}
+.titulo__h1{
+  
+  font-family: var(--tipo-principal);
+  font-size: 3em;
+  color: var(--azul);
+}
+/* ---------estilos formulario---------------- */
+.formulario{
+
+  display: flex;
+  margin-bottom: 10%;
+   width: auto;
+   height: auto;
+  justify-content: center;
+ 
+}
+.formulario__form{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 5%;
+  background-color:transparent;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
+  border: 1.5px solid rgba(209, 213, 219, 1);
+  border-radius: 5%;
+}
+.formulario__lista{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:50px;
+}
+.formulario__li{
+  font-family: var(--tipo-principal);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.formulario__label{
+  color: var(--azul);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5em;
+}
+.formulario__input{
+  width: 20rem;
+  height: 1.5625rem;
+  background-color: transparent;
+  border:1px solid var(--azul);
+}
+.formulario__textarea{
+  width: 20rem;
+  height: 6rem;
+  background-color: transparent;
+  border:1px solid var(--azul);
+  resize: none;
+}
+.formulario__boton{
+  width: 100%;
+  height: 4rem;
+  margin-top: 50px;
+  border: none;
+  border-radius: 5%;
+  color:white;
+  font-size: 1.5em;
+  border: 1px solid var(--azul);
+  text-align: center;
+  font-family: var(--tipo__primera);
+  background-color: var(--azul);
+}
+
+
+/* ---------responsive----------- */
+/* ---------------ordenadores pequeños----------- */
+@media screen and (min-width:1025px) and (max-width: 1900px)  {
+  .body{
+    max-width: 100%;
+    /* background-image: url(../img/fondoMovil.jpg);
+    background-attachment: fixed; */
+  }
+  .header__nav{
+    width: 70%;
+    height: 20vh;
+    
+    
+    
+  }
+  .nav__ul{
+    width: 80vw;
+    padding-right: 5vw;
+    
+  
+    flex-wrap: wrap;
+   
+  }
+  .nav__li{
+    font-size: 1.5em;
+  }
+  .landing{
+    width: 100%;
+    height: 110vh;
+  }
+  .landing__h2{
+    font-size: 4em;
+  }
+  .landing__titulo{
+   width: 60vw;
+   margin-left: 20vW;
+    margin-top: 70vh;
+  }
+  
+  .landing__div2{
+    top: 45vh;
+
+  }
+  @keyframes caer2 {
+    0%{
+      top: 0;
+      
+    }
+    50%{
+      top:25vh ;
+      
+    }
+    100%{
+      top: 45vh;
+    }
+    }
+  .landing__h1{
+    font-size: 5.7em;
+  }
+  .info__div{
+    
+    width: 70vw;
+    margin-left:15%;
+  }
+  .nosotros{
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
+  padding-left: 0;
+  padding-right: 0;
+  }
+  .nosotros__div{
+    padding: 0;
+    max-width: 95vw;
+    gap: 1rem;
+  }
+  @keyframes mover {
+    0%{
+      transform: translateX(-80%);
+  
+    }
+    
+  }
+  .nosotros__h2{
+    margin-bottom: 5%;
+  }
+  .nosotros__h3{
+    font-size: 1.3em;
+  }
+  .nosotros__parrafo{
+    font-size: 1.3em;
+  }
+.nosotros__enlace{
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+  .proyectos__galeria{
+    padding: 7% 5%;
+  }
+  .card__div{
+    width: 21.875rem;
+    height: 21.875rem;
+  }
+  .carab__h3{
+    font-size: 1.7em;
+  }
+  .proyectos__carab{
+    width: 21.875rem;
+    height: 21.875rem;
+  }
+   /* ------modal------ */
+   .modal__open > div {
+    width: 1000px;
+    height: 25rem;
+   
+  }
+
+   /* -------carrusel-------- */
+  .carrusel{
+    width: 100%;
+    height:25rem;
+   
+  
+    overflow-Y: hidden; 
+    
+    display: flex;
+   
+    background-color: blue;
+  
+  }
+  /* contenedor de las fotos del carrusel-------- */
+  .grande{
+    width: 100%;
+    height: 300%;
+   
+  
+  }
+  /* -------contenedor de imagen-------- */
+  .img__div{
+    height:calc(100%/3);
+    min-width: 25rem;
+  }
+  /* ------cada una de las imagenes-------- */
+  .img__carrusel{
+    width: 100%;
+  }
+  /* contenedor de los botones que avanzan las imagenes--------- */
+  .puntos{
+    width: 150%;
+    height: 150%;
+  
+  }
+  /* ----cada uno de los botones y sus estilos------- */
+  .punto{
+  
+    width: 2.7em;
+    height: 2.7em;
+   
+  }
+
+  /* -------segundo carrusel funciona igual al primero pero cambia los nombres de las clases------- */
+  .imagenes{
+    width: 100%;
+    height:25rem;
+   
+  
+ 
+  
+  }
+  .fotos{
+    width: 100%;
+    height: 300%;
+   
+  
+  }
+  .puntos__dos{
+    width: 150%;
+    height: 150%;
+ 
+  }
+  .punto__dos{
+  
+    width: 2.7em;
+    height: 2.7em;
+  
+  }
+ 
+  
+  /* -------tercer carrusel con distintos nombres de clases------------- */
+  .imagenes-dos{
+    width: 100%;
+    height: 25rem;
+   
+  
+ 
+  }
+  .fotos-dos{
+    width: 100%;
+    height: 300%;
+ 
+  
+  }
+  .puntos-tres{
+    width: 150%;
+    height: 150%;
+ 
+  }
+  .punto-tres{
+   
+    width: 2.7em;
+    height: 2.7em;
+   
+  }
+  
+  .footer__social{
+    margin-bottom: 5vh;
+  }
+  .footer__div{
+    
+    margin-left: 5vw;
+  }
+  .footer__h2{
+    font-size: 3em;
+  }
+  /* ------------pg nosotros------------- */
+  .quehacemos{
+    padding: 0;
+    gap: 3rem;
+  }
+  .quehacemos__div{
+    width: 90%;
+    margin: 5%;
+  }
+  .quehacemos__primera{
+    width: 22rem;
+  }
+  .quehacemos__segunda{
+    
+    width: 22rem;
+  }
+  .quehacemos__tercera{
+    width: 22rem;
+  }
+  .quehacemos__h4{
+    font-size: 1.5em;
+  }
+  .comotrabajamos{
+    padding: 0;
+    height: auto;
+  }
+  .comotrabajamos__div{
+    width: 90%;
+    height: auto;
+    margin: 5%;
+  }
+  .comotrabajamos__primera{
+    width: 34rem;
+    height: auto;
+  }
+.comotrabajamos__segunda{
+    width: 34rem;
+    height: auto;
+}
+.comotrabajamos__h4{
+    font-size: 1.5em;
+}
+.comotrabajamos__enlace{
+    padding-top: 5%;
+}
+/* --------------------pg trabajos--------------------- */
+.trabajos{
+  padding-top: 15vh;
+}
+.proyectos__naranja{
+  top:5rem;
+   width: 10rem;
+  height: 2em;
+}
+.proyectos__turquesa{
+  top: 0;
+  right: 0;
+   width: 1rem;
+  height:10rem;
+}
+.proyectos__berenjena{
+  
+  bottom:  0.7rem;
+   width: 10rem;
+  height: 1em;
+}
+
+.imagenes-tres{
+width: 100%;
+height: 25rem;
+
+
+
+} 
+
+.fotos-tres{
+width: 100%;
+height: 300%;
+
+
+}
+.puntos-cuatro{
+width: 150%;
+height: 150%;
+
+}
+.punto-cuatro{
+
+width: 2.7em;
+height: 2.7em;
+
+}
+.imagenes-cuatro{
+width: 100%;
+height: 25rem;
+
+
+
+}
+.fotos-cuatro{
+width: 100%;
+height: 300%;
+
+
+}
+.puntos-cinco{
+width: 150%;
+height: 150%;
+
+}
+.punto-cinco{
+
+width: 2.7em;
+height: 2.7em;
+
+}
+.imagenes-cinco{
+width: 100%;
+height: 25rem;
+
+
+
+}
+.fotos-cinco{
+width: 100%;
+height: 300%;
+
+
+}
+.puntos-seis{
+width: 150%;
+height: 150%;
+
+}
+.punto-seis{
+
+width: 2.7em;
+height: 2.7em;
+
+}
+
+
+
+/* ---------pg contacto-------------- */
+.contacto__contenido{
+  padding-top: 20vh;
+}
+.contacto__h1{
+  font-size:5em ;
+}
+.h2__info{
+  font-size: 3em;
+}
+.parrafo__info{
+  font-size: 2em;
+  width: 60vw;
+}
+.enlace__info{
+  font-size: 5em;
+}
+.contacto__enlace{
+  font-size:2em ;
+}
+/* ----------pg consultas--------- */
+.formulario{
+  margin-bottom: 20%;
+}
+.titulo{
+  margin-top: 5%;
+}
+}
+/* --------------------tablets grandes tipo ipap pro y ordenadores pequeños */
+@media screen and (min-width: 907px) and (max-width: 1024px)  {
+   /* .body{
+     background-image: url(../img/fondoMovil.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed; 
+  }  */
+  .header__figure{
+    margin-left: 20vw;
+    margin-top: 20vh;
+    width: 25em;
+  }
+  .header__nav{
+    display: none;
+  }
+  .nav__ul{
+    display: none;
+  }
+  .hamburger{
+    display: block;
+    width: 80px;
+    height: 80px;
+   
+  }
+  
+ 
+  .landing{
+   
+    height: 80vh;
+    
+  }
+  .landing__svg{
+    width: 40vw;
+    top:30vh;
+    right: 10VW;
+  }
+  .landing__h1{
+    font-size: 4.5em;
+  }
+  .landing__h2{
+    font-size: 3em;
+
+  }
+  .landing__titulo{
+    width: 80vw;  
+    margin-left: 7vW;
+    margin-top: 45vh;
+  }
+  .landing__div1{
+   
+    margin-left: 7vW;
+    top: 30vh;
+   
+  }
+  @keyframes caer {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:15vh ;
+    }
+    100%{
+      top: 30vh;
+    }  
+  }
+  .landing__div2{
+    
+    margin-left: 7vW;
+    top: 42vh;
+    
+  }
+  @keyframes caer2 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:17vh ;
+    }
+    100%{
+      top: 42vh;
+    }  
+  }
+  .landing__div3{
+    
+    margin-left: 7vW;
+    top: 59vh;
+    
+  }
+  @keyframes caer3 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:30vh ;
+    }
+    100%{
+      top: 59vh;
+    }  
+  }
+  /* ----------seccion info-------- */
+  .info__div{
+    width: 90%;
+    margin-left: 5vw;
+    gap: 2vh;
+  }
+  .info__h2{
+   
+    font-size: 2.7em;
+    
+  }
+  .info__h3{
+    width: 60vw;
+    margin-left: 10vw;
+    text-align: center;
+    line-height: 2;
+    font-size: 1.7em;
+    
+  }
+  .info__parrafo{
+    display: none;
+    font-size: 1.1em;
+  }
+  /* ------------seccion nosotros------- */
+  .nosotros{
+    background-image: url(../img/eventosMovil3.jpg);
+    
+    object-fit: cover;
+    gap: 5vh;
+  }
+  .nosotros__div{
+    gap: 2vh;
+    padding: 3% 3%;
+  }
+  .nosotros__segunda{
+    gap: 1rem;
+    width: 75vw;
+    
+  }
+  .nosotros__primera{
+    gap: 1rem;
+    width: 75vw;
+    
+
+  }
+  .nosotros__tercera{
+    gap: 1rem;
+    width: 75vw;
+
+  }
+  .nosotros__cuarta{
+    gap: 1rem;
+    width: 75vw;
+
+  }
+  .nosotros__quinta{
+    gap: 1rem;
+    width: 75vw;
+
+  }
+  .nosotros__sexta{
+    gap: 1rem;
+    width: 75vw;
+
+  }
+  .nosotros__h2{
+    font-size: 3em;
+    padding-top: 5vh;
+  }
+  
+  .nosotros__h3{
+    width: 50vw;
+    font-size: 2em;
+  }
+  .nosotros__parrafo{
+    
+    font-size: 1.7em;
+  }
+  .nosotros__enlace{
+    font-size: 1.7em;
+    margin-bottom: 5%;
+  }
+  /* ------seccion proyectos-------- */
+  .proyectos{
+    height: 260vw;
+  }
+  .proyectos__naranja{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyectos__turquesa{
+    top: 0;
+    right: 0;
+     width: 1rem;
+    height:10rem;
+  }
+  .proyectos__berengena{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyecto__titulo{
+    
+    font-size: 4em;
+    width: 95vw;
+    
+  }
+  .proyectos__card{
+    width: 100%;
+  }
+  .card__div{
+    
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    margin: 10px;
+  } 
+  .proyectos__carab{
+    
+    width: 100%;
+    height:97%;
+  } 
+  .carab__h3{
+    font-size: 3em;
+  }
+  .carab__enlace{
+    font-size: 2.5em;
+  }
+  /* -------modal--------- */
+  .modal__open > div{
+    width:800px ;
+    height: auto;
+  }
+  .carrusel{
+    width: 800px;
+  }
+  .grande{
+    width: 700px;
+  }
+  .img__carrusel{
+    width: 700px;
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 700px;
+  }
+ 
+  .puntos{
+    width: 500px;
+    flex-direction: column;
+    height: 900px;
+  } 
+  .imagenes{
+    width: 800px;
+  }
+  .fotos{
+    width: 700px;
+  }
+  .img__carrusel{
+    width: 700px;
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 700px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos__dos{
+    width: 500px;
+    flex-direction: column;
+    height: 900px;
+  } 
+  .imagenes-dos{
+    width: 800px;
+  }
+  .fotos-dos{
+    width: 700px;
+  }
+  .img__carrusel{
+    width: 700px;
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 700px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos-tres{
+    width: 500px;
+    flex-direction: column;
+    height: 900px;
+  } 
+  /* ---------seccion contacto---------   */
+  .contenedor{
+    margin-top: 10vh;
+  }
+  .contacto__div{
+    width: 70%;
+  }
+  .contacto__parrafo{
+    font-size: 3em;
+  }
+  .contacto__h3{
+    font-size: 3.7em;
+  }
+  .contacto__h2{
+    font-size: 4.5em;
+  }
+  .contacto__boton{
+    width: 25rem;
+    height: 8rem;
+    font-size: 2em;
+  }
+  .img{
+    width: 100px;
+}
+
+.div{
+    width: 90%;
+}
+
+ 
+/* --------footer-------- */
+.footer{
+  height: 20vh;
+  gap: 2vh;
+}
+.footer__div{
+  width: 70%;
+  margin-left: 5vw;
+  align-items: center;
+  margin-top: 2vh;
+}
+.footer__figure{
+  width: 30vw;
+}
+.footer__h2{
+  
+  font-size: 3.5em;
+  line-height: 1.5em;
+  
+}
+.footer__social{
+  margin-bottom: 5vh;
+  width: 40vw;
+ 
+}
+.social__ul{
+  width: 40vw;
+  
+}
+.bi{
+  width: 70px;
+}
+/* -------------pg nosotros-------------- */
+.main{
+  margin-top: 20%;
+}
+.abaut{
+  margin-top: 5vh;
+}
+.abaut__h1{
+  font-size:3.7em ;
+}
+.abaut__parrafo{
+    font-size: 1.7em;
+}
+/* ------------que hacemos-------- */
+  
+.quehacemos{
+  margin-top: 5vh;
+  padding: 2vw;
+}
+.quehacemos__div{
+  padding: 2vw;
+  margin-left: 5vw;
+}
+.quehacemos__h2{
+  font-size: 3.7em;
+  padding-top: 5vh;
+}
+.quehacemos__parrafo{
+  font-size: 1.5em;
+}
+.quehacemos__primera{
+  width: 80vw;
+  padding: 3%;
+ 
+  gap: 2rem;
+  
+}
+.quehacemos__segunda{
+  width: 80vw;
+  padding: 3%;
+ 
+  gap: 2rem;
+ 
+}
+.quehacemos__tercera{
+  width: 80vw;
+  padding: 3%;
+ 
+  gap: 2rem;
+ 
+}
+
+.comotrabajamos__h2{
+  font-size: 3.7em;
+  padding-top: 5vh;
+}
+.quehacemos__h4{
+    width: 45vw;
+ 
+  font-size: 2em;
+  
+}
+.quehacemos__parrafo{
+ 
+  font-size: 1.7em;
+}
+/* ------como trabajamos--------- */
+.comotrabajamos{
+  height: auto;
+  padding: 5vw;
+  
+}
+.comotrabajamos__div{
+    padding: 0;
+}
+.comotrabajamos__h4{
+  width: 60vw;
+  font-size: 2em;
+  
+}
+.comotrabajamos__parrafo{
+  
+  font-size: 1.7em;
+}
+.comotrabajamos__enlace{
+  font-size: 2em;
+  padding-bottom: 5vh;
+}
+.comotrabajamos__primera{
+  width:85vw ;
+}
+.comotrabajamos__segunda{
+  width:85vw ;
+} 
+/* ---------pg tarbajos------------- */
+.trabajos{
+  padding-top: 15vh;
+  height: auto;
+}
+.proyectos__naranja{
+  top:5rem;
+   width: 10rem;
+  height: 2em;
+}
+.proyectos__turquesa{
+  top: 0;
+  right: 0;
+   width: 1rem;
+  height:10rem;
+}
+.proyectos__berenjena{
+  
+  bottom:  0.7rem;
+   width: 10rem;
+  height: 1em;
+}
+
+/* -------------modal cuatro--------------- */
+.imagenes-tres{
+  width: 800px;
+}
+.fotos-tres{
+  width: 700px;
+}
+
+.puntos-cuatro{
+  width: 500px;
+  flex-direction: column;
+  height: 900px;
+} 
+/* -----------------modal cinco----------- */
+.imagenes-cuatro{
+  width: 800px;
+}
+.fotos-cuatro{
+  width: 700px;
+}
+.img__carrusel{
+  width: 700px;
+}
+.img__div{
+  height:calc(100%*3);
+  width: 700px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-cinco{
+  width: 500px;
+  flex-direction: column;
+  height: 900px;
+} 
+/* --------modal seis----------- */
+.imagenes-cinco{
+  width: 800px;
+}
+.fotos-cinco{
+  width: 700px;
+}
+.img__carrusel{
+  width: 700px;
+}
+.img__div{
+  height:calc(100%*3);
+  width: 700px;
+}
+.img__carrusel{
+  width: 700px;
+ 
+}
+.puntos-seis{
+  width: 500px;
+  flex-direction: column;
+  height: 900px;
+} 
+/* -----------------------pg contacto-------------------- */
+.contacto__contenido{
+  padding-top: 20vh;
+}
+.contacto__h1{
+  font-size:4em ;
+}
+.h2__info{
+  font-size: 2.5em;
+}
+.parrafo__info{
+  font-size: 1.7em;
+  width: 80vw;
+}
+.enlace__info{
+  font-size: 4em;
+}
+.contacto__enlace{
+  font-size:2em ;
+}
+/* -------pg consultas-------- */
+.titulo{
+  margin-top: 20%;
+}
+.titulo__h1{
+  font-size: 2.5em;
+}
+.formulario{
+  margin-bottom: 20%;
+}
+}
+/* ------------tablets normales------------ */
+@media screen and (min-width: 769px) and (max-width: 906px){
+  .body{
+    background-image: url(../img/fondoMovil.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+  }
+  
+  .header__figure{
+    margin-left: 20vw;
+    margin-top: 20vh;
+    width: 25em;
+  }
+  .header__nav{
+    display: none;
+  }
+  .nav__ul{
+    display: none;
+  }
+  .hamburger{
+    display: block;
+  }
+  .landing{
+   
+    height: 80vh;
+    
+  }
+  .landing__svg{
+    width: 40vw;
+    top:30vh;
+    right: 10VW;
+  }
+  .landing__h1{
+    font-size: 3em;
+  }
+  .landing__h2{
+    font-size: 3em;
+
+  }
+  .landing__titulo{
+    width: 80vw;  
+    margin-left: 7vW;
+    margin-top: 45vh;
+  }
+  .landing__div1{
+   
+    margin-left: 7vW;
+    top: 30vh;
+   
+  }
+  @keyframes caer {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:15vh ;
+    }
+    100%{
+      top: 30vh;
+    }  
+  }
+  .landing__div2{
+    
+    margin-left: 7vW;
+    top: 42vh;
+    
+  }
+  @keyframes caer2 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:17vh ;
+    }
+    100%{
+      top: 42vh;
+    }  
+  }
+  .landing__div3{
+    
+    margin-left: 7vW;
+    top: 59vh;
+    
+  }
+  @keyframes caer3 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:30vh ;
+    }
+    100%{
+      top: 59vh;
+    }  
+  }
+  /* ----------seccion info-------- */
+  .info__div{
+    width: 90%;
+    margin-left: 5vw;
+    gap: 2vh;
+  }
+  .info__h2{
+   
+    font-size: 2em;
+    
+  }
+  .info__h3{
+    width: 60vw;
+    margin-left: 10vw;
+    text-align: center;
+    line-height: 2;
+    font-size: 1.5em;
+    
+  }
+  .info__parrafo{
+    display: none;
+    font-size: 1.1em;
+  }
+  /* ------------seccion nosotros------- */
+  .nosotros{
+    background-image: url(../img/eventosMovil3.jpg);
+    
+    object-fit: cover;
+    gap: 5vh;
+  }
+  .nosotros__div{
+    gap: 2vh;
+    padding: 3% 15%;
+  }
+  .nosotros__segunda{
+    gap: 1rem;
+    
+  }
+  .nosotros__primera{
+    gap: 1rem;
+    
+
+  }
+  .nosotros__tercera{
+    gap: 1rem;
+
+  }
+  .nosotros__cuarta{
+    gap: 1rem;
+
+  }
+  .nosotros__quinta{
+    gap: 1rem;
+
+  }
+  .nosotros__sexta{
+    gap: 1rem;
+
+  }
+  .nosotros__h2{
+    font-size: 2.7em;
+    padding-top: 5vh;
+  }
+  
+  .nosotros__h3{
+    width: 50vw;
+    font-size: 1.7em;
+  }
+  .nosotros__parrafo{
+    
+    font-size: 1.1em;
+  }
+  .nosotros__enlace{
+    font-size: 1.7em;
+  }
+  /* ------seccion proyectos-------- */
+  .proyectos{
+    height: 260vw;
+  }
+  .proyectos__naranja{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyectos__turquesa{
+    top: 0;
+    right: 0;
+     width: 1rem;
+    height:10rem;
+  }
+  .proyectos__berengena{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyecto__titulo{
+  
+    font-size:2.5em;
+    
+  }
+  .trabajo__galeria{
+      padding: 7% 0;
+  }
+  .card__div{
+      width: 300px;
+      height: 300px;
+  }
+  .proyectos__card{
+    
+    width: 300px;
+    height:300px;
+    overflow: hidden;
+    margin: 10px;
+  } 
+  .proyectos__carab{
+    
+    width: 300px;
+    height: 300px;
+  } 
+  .carab__h3{
+    font-size: 1.7em;
+  }
+  .carab__enlace{
+    font-size: 1.7em;
+  }
+  /* -------modal--------- */
+  .modal__open > div{
+    width:500px ;
+    height: auto;
+  }
+  .carrusel{
+    width:100%;
+    height: 250px;
+    
+  }
+  .grande{
+    width: 50%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 250px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }
+  .imagenes{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos{
+    width: 50%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 250px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos__dos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto__dos{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }
+  .imagenes-dos{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos-dos{
+    width: 50%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 250px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos-tres{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto-tres{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }
+  /* ---------seccion contacto---------   */
+  .contenedor{
+    margin-top: 10vh;
+  }
+  .contacto__div{
+    width: 70%;
+  }
+  .contacto__parrafo{
+    font-size: 2.7em;
+  }
+  .contacto__h3{
+    font-size: 3em;
+  }
+  .contacto__h2{
+    font-size: 3.5em;
+  }
+  .contacto__boton{
+    width: 20rem;
+    height: 6rem;
+    font-size: 2em;
+  }
+  .img{
+    width: 100px;
+}
+
+.div{
+    width: 90%;
+}
+
+ 
+/* --------footer-------- */
+.footer{
+  height: auto;
+  gap: 2vh;
+}
+.footer__div{
+  width: 70%;
+  margin-left: 5vw;
+  align-items: center;
+  margin-top: 2vh;
+}
+.footer__figure{
+  width: 30vw;
+}
+.footer__h2{
+  color: white;
+ 
+  font-size: 2.7em;
+  line-height: 1.5em;
+  
+}
+.footer__social{
+  margin-bottom: 5vh;
+  width: 40vw;
+  
+}
+.social__ul{
+  width: 40vw;
+  
+}
+.bi{
+  width: 50px;
+}
+/* -------------pg nosotros------------ */
+.main{
+  margin-top: 20%;
+}
+ /* --------about----------- */
+ .abaut{
+  margin-top: 5vh;
+}
+.abaut__h1{
+  font-size:3.5em ;
+}
+.abaut__parrafo{
+    font-size: 1em;
+}
+ /* --------que hacemos--------  */
+.quehacemos{
+  margin-top: 5vh;
+}
+.quehacemos__h2{
+  font-size: 3.5em;
+  padding-top: 5vh;
+}
+
+.quehacemos__primera{
+  width: 90vw;
+  padding: 3%;
+ 
+  gap: 2rem;
+  
+}
+.quehacemos__segunda{
+  width: 90vw;
+  padding: 3%;
+ 
+  gap: 2rem;
+ 
+}
+.quehacemos__tercera{
+  width: 90vw;
+  padding: 3%;
+  
+  gap: 2rem;
+ 
+}
+
+.comotrabajamos__h2{
+  font-size: 3.5em;
+  padding-top: 5vh;
+}
+.quehacemos__h4{
+    width: 45vw;
+ 
+  font-size: 2em;
+  
+}
+.quehacemos__parrafo{
+ 
+  font-size: 1.3em;
+}
+/* --------como trabajamos------- */
+.comotrabajamos{
+  height: auto;
+  padding: 0;
+
+}
+.comotrabajamos__div{
+    padding: 5vh;
+}
+.comotrabajamos__h4{
+  width: 60vw;
+  font-size: 2em;
+  
+}
+.comotrabajamos__parrafo{
+  
+  font-size: 1.1em;
+}
+.comotrabajamos__enlace{
+  font-size: 2em;
+  padding-bottom: 5vh;
+}
+.comotrabajamos__primera{
+  width:90vw ;
+}
+.comotrabajamos__segunda{
+  width:90vw ;
+}
+/* -------------------pg trabajos------------------- */
+.trabajos{
+  padding-top: 15vh;
+  height: auto;
+}
+.proyectos__naranja{
+  top:5rem;
+   width: 10rem;
+  height: 2em;
+}
+.proyectos__turquesa{
+  top: 0;
+  right: 0;
+   width: 1rem;
+  height:10rem;
+}
+.proyectos__berenjena{
+  
+  bottom:  0.7rem;
+   width: 10rem;
+  height: 1em;
+}
+
+.imagenes-tres{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-tres{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-cuatro{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+
+.imagenes-cuatro{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-cuatro{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-cinco{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+
+.imagenes-cinco{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-cinco{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-seis{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+
+/* ---------------pg contacto----------------- */
+.contacto__contenido{
+  padding-top: 20vh;
+}
+.contacto__h1{
+  font-size:3.7em ;
+}
+.h2__info{
+  font-size: 2em;
+}
+.parrafo__info{
+  font-size: 1.5em;
+  width: 80vw;
+}
+.enlace__info{
+  font-size: 3.5em;
+}
+.contacto__enlace{
+  font-size:1.7em ;
+}
+/* ---------pg consultas--------- */
+.titulo{
+  margin-top: 20%;
+}
+.titulo__h1{
+  font-size: 2.5em;
+}
+}
+/* -----------tablets pequeñas----------------- */
+@media screen and (min-width:481px)  and (max-width:768px) {
+  .body{
+    background-image: url(../img/fondoMovil.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+  }
+  
+  .header__figure{
+    margin-left: 20vw;
+    margin-top: 20vh;
+    width: 25em;
+  }
+  .header__nav{
+    display: none;
+  }
+  .nav__ul{
+    display: none;
+  }
+  .hamburger{
+    display: block;
+  }
+  .landing{
+   
+    height: 80vh;
+    
+  }
+  .landing__svg{
+    width: 40vw;
+    top:30vh;
+    right: 10VW;
+  }
+  .landing__h1{
+    font-size: 3em;
+  }
+  .landing__h2{
+    font-size: 3em;
+
+  }
+  .landing__titulo{
+    width: 80vw;  
+    margin-left: 7vW;
+    margin-top: 45vh;
+  }
+  .landing__div1{
+   
+    margin-left: 7vW;
+    top: 30vh;
+   
+  }
+  @keyframes caer {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:15vh ;
+    }
+    100%{
+      top: 30vh;
+    }  
+  }
+  .landing__div2{
+    
+    margin-left: 7vW;
+    top: 42vh;
+    
+  }
+  @keyframes caer2 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:17vh ;
+    }
+    100%{
+      top: 42vh;
+    }  
+  }
+  .landing__div3{
+    
+    margin-left: 7vW;
+    top: 59vh;
+    
+  }
+  @keyframes caer3 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:30vh ;
+    }
+    100%{
+      top: 59vh;
+    }  
+  }
+  /* ----------seccion info-------- */
+  .info__div{
+    width: 90%;
+    margin-left: 5vw;
+    gap: 2vh;
+  }
+  .info__h2{
+   
+    font-size: 2em;
+    
+  }
+  .info__h3{
+    width: 60vw;
+    margin-left: 10vw;
+    text-align: center;
+    line-height: 2;
+    font-size: 1.5em;
+    
+  }
+  .info__parrafo{
+    display: none;
+    font-size: 1.1em;
+  }
+  /* ------------seccion nosotros------- */
+  .nosotros{
+    background-image: url(../img/eventosMovil3.jpg);
+    
+    object-fit: cover;
+    gap: 5vh;
+  }
+  .nosotros__div{
+    gap: 2vh;
+    padding: 3% 15%;
+  }
+  .nosotros__segunda{
+    gap: 1rem;
+    
+  }
+  .nosotros__primera{
+    gap: 1rem;
+    
+
+  }
+  .nosotros__tercera{
+    gap: 1rem;
+
+  }
+  .nosotros__cuarta{
+    gap: 1rem;
+
+  }
+  .nosotros__quinta{
+    gap: 1rem;
+
+  }
+  .nosotros__sexta{
+    gap: 1rem;
+
+  }
+  .nosotros__h2{
+    font-size: 2.7em;
+    padding-top: 5vh;
+  }
+ 
+  .nosotros__h3{
+    width: 50vw;
+    font-size: 1.7em;
+  }
+  .nosotros__parrafo{
+    
+    font-size: 1.1em;
+  }
+  .nosotros__enlace{
+    font-size: 1.7em;
+  }
+  /* ------seccion proyectos-------- */
+  .proyectos{
+    height: 260vw;
+  }
+  .proyectos__naranja{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyectos__turquesa{
+    top: 0;
+    right: 0;
+     width: 1rem;
+    height:10rem;
+  }
+  .proyectos__berengena{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyecto__titulo{
+    margin-top: 5%;
+    font-size: 1.7em;
+    width: 95vw;
+    
+  }
+  .proyectos__card{
+   
+    width: auto
+  }
+  .card__div{
+    
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    margin: 10px;
+  } 
+  .proyectos__carab{
+    
+    width: 100%;
+    height:97%;
+  } 
+  .carab__h3{
+    font-size: 1.7em;
+  }
+  .carab__enlace{
+    font-size: 2em;
+  }
+  /* -------modal--------- */
+  .modal__open > div{
+    width:500px ;
+    height: auto;
+    margin: 55% auto;
+  }
+  .close{
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1.5em;
+    padding-top: 0.3em;
+  }
+  
+  /* ------------carrusel---------- */
+  .carrusel{
+    width:100%;
+    height: 250px;
+    
+  }
+  .grande{
+    width: 50%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 250px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }
+  .imagenes{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos{
+    width: 50%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 250px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos__dos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+   .punto__dos{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  } 
+  .imagenes-dos{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos-dos{
+    width: 50%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    width: 250px;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos-tres{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto-tres{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  } 
+ 
+  /* ---------seccion contacto---------   */
+  .contenedor{
+    margin-top: 10vh;
+  }
+  .contacto__div{
+    width: 70%;
+  }
+  .contacto__parrafo{
+    font-size: 2.7em;
+  }
+  .contacto__h3{
+    font-size: 3em;
+  }
+  .contacto__h2{
+    font-size: 3.5em;
+  }
+  .contacto__boton{
+    width: 20rem;
+    height: 6rem;
+    font-size: 2em;
+  }
+  .img{
+    width: 100px;
+}
+
+.div{
+    width: 90%;
+}
+
+ 
+/* --------footer-------- */
+.footer{
+  height: auto;
+  gap: 2vh;
+}
+.footer__div{
+  width: 70%;
+  margin-left: 5vw;
+  align-items: center;
+  margin-top: 2vh;
+}
+.footer__figure{
+  width: 30vw;
+}
+.footer__h2{
+  color: white;
+ 
+  font-size: 2.7em;
+  line-height: 1.5em;
+  
+}
+.footer__social{
+  margin-bottom: 5vh;
+  width: 40vw;
+  
+}
+.social__ul{
+  width: 40vw;
+  
+}
+.bi{
+  width: 50px;
+}
+/* -----------pag nosotros------------- */
+.main{
+  margin-top: 20%;
+}
+ /* ---------about-------- */
+ .abaut{
+  width: 90%;
+  margin-top: 5vh;
+  padding: 2%;
+}
+.abaut__div{
+  padding: 2vw;
+}
+.abaut__h1{
+  font-size:3em ;
+}
+.abaut__parrafo{
+    font-size: 1em;
+}
+ /* ---------que hacemos--------  */
+.quehacemos{
+  margin-top: 5vh;
+  padding: 5%;
+}
+.quehacemos__div{
+  width: 90%;
+  padding: 2%;
+  margin-left: 5vw;
+
+}
+
+.quehacemos__h2{
+  font-size: 3em;
+  padding-top: 5vh;
+}
+.comotrabajamos__h2{
+  font-size: 2em;
+  padding-top: 5vh;
+}
+.quehacemos__h4{
+    width: 45vw;
+ 
+  font-size: 1.3em;
+  
+}
+.quehacemos__parrafo{
+ 
+  font-size: 1.1em;
+}
+.quehacemos__primera{
+  width: 90vw;
+  padding: 3%;
+ 
+  gap: 2rem;
+ 
+  border: 1px solid  var(--rosa);
+}
+.quehacemos__segunda{
+  width: 90vw;
+  padding: 3%;
+  
+  gap: 2rem;
+ 
+}
+.quehacemos__tercera{
+  width: 90vw;
+  padding: 3%;
+  
+  gap: 2rem;
+  
+}
+/* -----------como trabajamos-------- */
+.comotrabajamos{
+  height: auto;
+  padding: 0;
+
+}
+.comotrabajamos__h2{
+  font-size: 3em;
+}
+.comotrabajamos__div{
+  width: 90%;
+    padding: 2vw;
+    margin-left: 5vw;
+}
+.comotrabajamos__h4{
+  width: 60vw;
+  font-size: 1.3em;
+  
+}
+.comotrabajamos__parrafo{
+  
+  font-size: 1.1em;
+}
+.comotrabajamos__enlace{
+  font-size: 1.7em;
+  padding-bottom: 5vh;
+}
+.comotrabajamos__primera{
+  width:90vw;
+}
+.comotrabajamos__segunda{
+  width:90vw ;
+}
+/* ------------------pg trabajos----------------- */
+.trabajos{
+  height: auto;
+}
+.proyectos__naranja{
+  top: 0.7rem;
+   width: 10rem;
+  height: 2em;
+}
+.proyectos__turquesa{
+  top: 0;
+  right: 0;
+   width: 1rem;
+  height:10rem;
+}
+.proyectos__berengena{
+  top: 0.7rem;
+   width: 10rem;
+  height: 2em;
+}
+/* .proyecto__titulo{
+  
+  font-size: 2.5em;
+  
+}
+.proyectos__card{
+  align-items: center;
+}
+.card__div{
+  
+  width: 300px;
+  height:300px;
+  overflow: hidden;
+  margin: 10px;
+} 
+.proyectos__carab{
+  
+  width: 300px;
+  height: 300px;
+} 
+.carab__h3{
+  font-size: 1.7em;
+}
+.carab__enlace{
+  font-size: 1em;
+}
+.modal__open > div{
+  width:500px ;
+  height: auto;
+  margin: 55% auto;
+}
+.close{
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 1.5em;
+  padding-top: 0.3em;
+} */
+
+/* ------------carrusel---------- */
+/* .carrusel{
+  width:100%;
+  height: 250px;
+  
+}
+.grande{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+.punto{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+}
+.imagenes{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos__dos{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+ .punto__dos{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+} 
+.imagenes-dos{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-dos{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-tres{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+.punto-tres{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+}  */
+.imagenes-tres{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-tres{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-cuatro{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+.punto-cuatro{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+}
+.imagenes-cuatro{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-cuatro{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-cinco{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+.punto-cinco{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+}
+.imagenes-cinco{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-cinco{
+  width: 50%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  width: 250px;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-seis{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+.punto-seis{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+}
+/* ----------------pg contacto------------- */
+.contacto__contenido{
+  padding-top: 20vh;
+}
+.contacto__h1{
+  font-size:3em ;
+}
+.h2__info{
+  font-size: 2em;
+}
+.parrafo__info{
+  font-size: 1.5em;
+  width: 80vw;
+}
+.enlace__info{
+  font-size: 3em;
+}
+.contacto__enlace{
+  font-size:1.7em ;
+}
+/* ---------pg consultas-------- */
+.titulo{
+  margin-top: 20%;
+}
+.titulo__h1{
+  font-size: 2em;
+}
+}
+
+/* --------media para moviles grandes tipo iphone plus----------- */
+@media  screen and (min-width: 376px) and (max-width:480px) {
+  .body{
+    background-image: url(../img/fondoMovil.jpg);
+    background-repeat: repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+  }
+  
+  .header__figure{
+    margin-left: 20vw;
+    margin-top: 20vh;
+    width: 15em;
+  }
+  .header__nav{
+    display: none;
+  }
+  .nav__ul{
+    display: none;
+  }
+  .hamburger{
+    display: block;
+  }
+  /* --------landing----------- */
+  .landing{
+   
+    height: 80vh;
+    
+  }
+  .landing__svg{
+    width: 40vw;
+    top:30vh;
+    right: 10VW;
+  }
+  .landing__h1{
+    font-size: 2em;
+  }
+  .landing__h2{
+    font-size: 2em;
+
+  }
+  .landing__titulo{
+    width: 80vw;  
+    margin-left: 7vW;
+    margin-top: 45vh;
+  }
+  .landing__div1{
+   
+    margin-left: 7vW;
+    top: 30vh;
+   
+  }
+  @keyframes caer {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:15vh ;
+    }
+    100%{
+      top: 30vh;
+    }  
+  }
+  .landing__div2{
+    
+    margin-left: 7vW;
+    top: 42vh;
+    
+  }
+  @keyframes caer2 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:17vh ;
+    }
+    100%{
+      top: 42vh;
+    }  
+  }
+  .landing__div3{
+    
+    margin-left: 7vW;
+    top: 59vh;
+    
+  }
+  @keyframes caer3 {
+    0%{
+      top: 0;
+    }
+    50%{
+      top:30vh ;
+    }
+    100%{
+      top: 59vh;
+    }  
+  }
+  /* ----------seccion info-------- */
+  .info__div{
+    width: 90%;
+    margin-left: 5vw;
+    gap: 2vh;
+  }
+  .info__h2{
+   
+    font-size: 1.7em;
+    
+  }
+  .info__h3{
+    width: 60vw;
+    margin-left: 10vw;
+    text-align: center;
+    line-height: 2;
+    font-size: 1em;
+    
+  }
+  .info__parrafo{
+    display: none;
+    font-size: 1.1em;
+  }
+  /* ------------seccion nosotros------- */
+  .nosotros{
+    background-image: url(../img/eventosMovil3.jpg);
+    
+    object-fit: cover;
+    gap: 5vh;
+  }
+  .nosotros--div{
+    gap: 2vh;
+  }
+  .nosotros__segunda{
+    gap: 1rem;
+    
+  }
+  .nosotros__primera{
+    gap: 1rem;
+    
+
+  }
+  .nosotros__tercera{
+    gap: 1rem;
+
+  }
+  .nosotros__cuarta{
+    gap: 1rem;
+
+  }
+  .nosotros__quinta{
+    gap: 1rem;
+
+  }
+  .nosotros__sexta{
+    gap: 1rem;
+
+  }
+  .nosotros__h2{
+    font-size: 1.7em;
+    padding-top: 5vh;
+  }
+ 
+  .nosotros__h3{
+    width: 50vw;
+    font-size: 1em;
+  }
+  .nosotros__parrafo{
+    
+    font-size: 1.1em;
+  }
+  .nosotros__enlace{
+    font-size: 1.7em;
+  }
+  /* ------seccion proyectos-------- */
+  .proyectos{
+    height: 270vw;
+  }
+  .proyectos__naranja{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyectos__turquesa{
+    top: 0;
+    right: 0;
+     width: 1rem;
+    height:10rem;
+  }
+  .proyectos__berengena{
+    top: 0.7rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyecto__titulo{
+    text-align: center;
+    font-size: 1.3em;
+    width: 90vw;
+    
+  }
+  .card__div{
+    
+    width: 300px;
+    height:300px;
+    overflow: hidden;
+    margin: 10px;
+  } 
+  .proyectos__carab{
+    
+    width: 300px;
+    height: 300px;
+  } 
+  .carab__h3{
+    font-size: 1.3em;
+  }
+  .carab__enlace{
+    font-size: 1.7em;
+  }
+  /* -------modal--------- */
+  .modal__open > div{
+    width:300px ;
+    height: auto;
+  }
+  .carrusel{
+    width:100%;
+    height: 250px;
+    
+  }
+  .grande{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }
+  .imagenes{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos__dos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto__dos{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }
+  .imagenes-dos{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos-dos{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos-tres{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto-tres{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }
+  /* ---------seccion contacto---------   */
+  .contenedor{
+    margin-top: 10vh;
+  }
+  .contacto__div{
+    width: 70%;
+  }
+  .contacto__parrafo{
+    font-size: 1.7em;
+  }
+  .contacto__h3{
+    font-size: 2.5em;
+  }
+  .contacto__h2{
+    font-size: 3em;
+  }
+ .contenido-slider{
+  flex-direction: column-reverse;
+}
+
+.img{
+  width: 60px;
+}
+
+.div{
+  width: 90%;
+}
+/* --------footer-------- */
+.footer{
+  height: auto;
+  gap: 2vh;
+}
+.footer__div{
+  width: 80%;
+  margin-left: 5vw;
+  align-items: center;
+  margin-top: 2vh;
+}
+.footer__figure{
+  width: 30vw;
+}
+.footer__h2{
+  color: white;
+ 
+  font-size: 1.5em;
+  line-height: 1.5em;
+  
+}
+.footer__social{
+  width: 35vw;
+ 
+}
+.social__ul{
+  width: 35vw;
+  
+}
+.bi{
+  width: 30px;
+}
+ /* ----------------pg nosotros-------------- */
+ .main{
+  margin-top: 25%;
+}
+ /* -------about----------- */
+ .abaut{
+  margin-top: 5vh;
+}
+.abaut__div{
+    width: 80%;
+}
+.abaut__h1{
+  font-size:2em ;
+}
+.abaut__parrafo{
+    font-size: 1em;
+}
+/* --------quehacemos-----------  */
+.quehacemos{
+  margin-top: 5vw;
+  width: 90%;
+  padding-left: 5%;
+}
+.quehacemos__div{
+    padding: 3%;
+}
+.quehacemos__primera{
+    width: 90vw;
+}
+.quehacemos__segunda{
+    width: 90vw;
+}
+.quehacemos__tercera{
+    width: 90vw;
+}
+.quehacemos__h2{
+  font-size: 1.7em;
+  padding-top: 5vh;
+}
+.comotrabajamos__h2{
+  font-size: 1.7em;
+  padding-top: 5vh;
+}
+.quehacemos__h4{
+    width: 45vw;
+ 
+  font-size: 1em;
+  
+}
+.quehacemos__parrafo{
+ 
+  font-size: 1.1em;
+}
+/* ---------como trabajamos--------- */
+.comotrabajamos{
+  height: auto;
+  padding: 2%;
+
+}
+.comotrabajamos__div{
+   
+    width: 80VW;
+    margin-left: 5vw;
+}
+.comotrabajamos__h4{
+  width: 60vw;
+  font-size: 1em;
+  
+  
+}
+.comotrabajamos__parrafo{
+  
+  font-size: 1.1em;
+}
+.comotrabajamos__enlace{
+  font-size: 1.5em;
+  padding-bottom: 5vh;
+}
+.comotrabajamos__primera{
+  width:90% ;
+}
+.comotrabajamos__segunda{
+  width:90% ;
+}
+/* --------------------pg trabajos------------------- */
+.proyectos{
+  padding-top: 15vh;
+  height: auto;
+}
+
+.proyectos__naranja{
+  top:5rem;
+   width: 10rem;
+  height: 2em;
+}
+.proyectos__turquesa{
+  top: 0;
+  right: 0;
+   width: 1rem;
+  height:10rem;
+}
+.proyectos__berenjena{
+  
+  bottom:  0.7rem;
+   width: 10rem;
+  height: 1em;
+}
+/* .proyecto__titulo{
+  
+  font-size: 1.7em;
+  
+}
+.proyectos__galeria{
+    padding: 7% 0;
+}
+.card__div{
+    width: 300px;
+    height: 300px;
+}
+.proyectos__card{
+  
+  width: 300px;
+  height:300px;
+  overflow: hidden;
+  margin: 10px;
+} 
+.proyectos__carab{
+  
+  width: 300px;
+  height: 300px;
+} 
+.carab__h3{
+  font-size: 1.2em;
+}
+.carab__enlace{
+  font-size: 1.5em;
+} */
+/* --------modales--------- */
+/* .modal__open > div{
+  width:300px ;
+  height: auto;
+}
+.carrusel{
+  width:100%;
+  height: 250px;
+  
+}
+.grande{
+  width: 100%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  min-width: 60vw;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+ .punto{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+} 
+.imagenes{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos{
+  width: 100%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  min-width: 60vw;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos__dos{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+ .punto__dos{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+} 
+.imagenes-dos{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-dos{
+  width: 100%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  min-width: 60vw;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-tres{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+.punto-tres{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+}  */
+.imagenes-tres{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-tres{
+  width: 100%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  min-width: 60vw;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-cuatro{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+ .punto-cuatro{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+} 
+.imagenes-cuatro{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-cuatro{
+  width: 100%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  min-width: 60vw;
+}
+.img__carrusel{
+  width: 100%;
+  height: 100%;
+}
+.puntos-cinco{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+.punto-cinco{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+} 
+.imagenes-cinco{
+  width:100%;
+  height: 250px;
+  
+}
+.fotos-cinco{
+  width: 100%;
+ height: 300%;
+
+}
+.img__div{
+  height:calc(100%*3);
+  min-width: 60vw;
+}
+.img__carrusel{
+  width: 100%;
+height: 100%;
+}
+.puntos-seis{
+  width: 50%;
+  height: auto;
+  flex-flow: column nowrap;
+} 
+ .punto-seis{
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
+} 
+/* ----------------pg contacto---------------- */
+.contacto__contenido{
+  padding-top: 20vh;
+}
+.contacto__h1{
+  font-size:2.7em ;
+}
+.h2__info{
+  font-size: 2em;
+}
+.parrafo__info{
+  font-size: 1.2em;
+  width: 70vw;
+}
+.enlace__info{
+  font-size: 2.5em;
+}
+.contacto__enlace{
+  font-size:1.7em ;
+}
+/* -------pag consultas--------- */
+.titulo{
+  margin-top: 20%;
+}
+.titulo__h1{
+  font-size: 1.5em;
+}
+}
+/* --------media -----para moviles pequeños tipo iphone SE------------ */
+  @media screen and (min-width:350px) and (max-width:375px) {
+    .body{
+      
+        background-image: url(../img/fondo\ movil\ pjpg.jpg);
+        background-repeat:repeat-y;
+        background-size:cover;
+        background-attachment: fixed;
+        max-width: 100%;
+        overflow-x: hidden;
+      
+    }
+    
+    .header__figure{
+      margin-left: 18vw;
+      margin-top: 25vh;
+      width: 15em;
+    }
+    .header__nav{
+      display: none;
+    }
+    .nav__ul{
+      display: none;
+    }
+    .hamburger{
+      display: block;
+    }
+    .landing{
+     
+      height: 80vh;
+      
+    }
+    .landing__svg{
+      width: 40vw;
+      top:30vh;
+      right: 10VW;
+    }
+    .landing__h1{
+      font-size: 2.5em;
+    }
+    .landing__h2{
+      font-size: 2em;
+  
+    }
+    .landing__titulo{
+      width: 80vw;  
+      margin-left: 7vW;
+      margin-top: 47vh;
+    }
+    .landing__div1{
+     
+      margin-left: 7vW;
+      top: 30vh;
+     
+    }
+    @keyframes caer {
+      0%{
+        top: 0;
+      }
+      50%{
+        top:15vh ;
+      }
+      100%{
+        top: 30vh;
+      }  
+    }
+    .landing__div2{
+      
+      margin-left: 7vW;
+      top: 42vh;
+      
+    }
+    @keyframes caer2 {
+      0%{
+        top: 0;
+      }
+      50%{
+        top:17vh ;
+      }
+      100%{
+        top: 42vh;
+      }  
+    }
+    .landing__div3{
+      
+      margin-left: 7vW;
+      top: 59vh;
+      
+    }
+    @keyframes caer3 {
+      0%{
+        top: 0;
+      }
+      50%{
+        top:30vh ;
+      }
+      100%{
+        top: 59vh;
+      }  
+    }
+    /* ----------seccion info-------- */
+    .info{
+      width:100%;
+    }
+    .info__div{
+      width: 90%;
+      margin-left: 5vw;
+      gap: 2vh;
+    }
+    .info__h2{
+   
+      font-size: 1.7em;
+      
+    }
+    .info__h3{
+      width: 60vw;
+      margin-left: 10vw;
+      font-size: 1em;
+     
+      
+    }
+    .info__parrafo{
+      display: none;
+      font-size: 1.1em;
+    }
+    /* ------------seccion nosotros------- */
+    .nosotros{
+      background-image: url(../img/eventosMovil2.jpg);
+      height: 150vh;
+      object-fit: cover;
+      gap: 5vh;
+      width: 100%;
+    }
+    .nosotros--div{
+      gap: 2vh;
+    }
+    .nosotros__segunda{
+      gap: 1rem;
+      
+    }
+    .nosotros__primera{
+      gap: 1rem;
+      
+  
+    }
+    .nosotros__tercera{
+      gap: 1rem;
+  
+    }
+    .nosotros__cuarta{
+      gap: 1rem;
+  
+    }
+    .nosotros__quinta{
+      gap: 1rem;
+  
+    }
+    .nosotros__sexta{
+      gap: 1rem;
+  
+    }
+    .nosotros__h2{
+      font-size: 1.7em;
+      padding-top: 5vh;
+    }
+  
+    .nosotros__h3{
+      width: 50vw;
+      font-size: 1em;
+    }
+    .nosotros__parrafo{
+      
+      font-size: 1.1em;
+    }
+    .nosotros__enlace{
+      font-size: 1.5em;
+    }
+    /* ------seccion proyectos-------- */
+    .proyectos{
+      height: 200vh;
+    }
+    .proyectos__naranja{
+      top: 0.7rem;
+       width: 10rem;
+      height: 2em;
+    }
+    .proyectos__turquesa{
+      top: 0;
+      right: 0;
+       width: 1rem;
+      height:10rem;
+    }
+    .proyectos__berengena{
+      top: 0.7rem;
+       width: 10rem;
+      height: 2em;
+    }
+    .proyecto__titulo{
+      
+      font-size: 1.3em;
+      width: 90vw;
+      
+    }
+    .card__div{
+      
+      width: 300px;
+      height:300px;
+      overflow: hidden;
+      margin: 10px;
+    } 
+    .proyectos__carab{
+      
+      width: 300px;
+      height: 300px;
+    } 
+    .carab__h3{
+      font-size: 1.7em;
+    }
+    .carab__enlace{
+      font-size: 1.5em;
+    }
+    .modal__open{
+      width: 100%;
+    }
+    
+    .modal__open > div{
+      width:300px ;
+      height: auto;
+    }
+    .carrusel{
+      width:100%;
+      height: 250px;
+      
+    }
+    .grande{
+      width: 100%;
+     height: 300%;
+    
+    }
+    .img__div{
+      height:calc(100%*3);
+      min-width: 60vw;
+    }
+    .img__carrusel{
+      width: 100%;
+      height: 100%;
+    }
+    .puntos{
+      width: 50%;
+      height: auto;
+      flex-flow: column nowrap;
+    } 
+    .punto{
+      width: 1.7em;
+      height: 1.7em;
+      font-size: 1.3em;
+      text-align: center;
+      padding: 0.2em;
+    }
+    .imagenes{
+      width:100%;
+      height: 250px;
+      
+    }
+    .fotos{
+      width: 100%;
+     height: 300%;
+    
+    }
+    .img__div{
+      height:calc(100%*3);
+      min-width: 60vw;
+    }
+    .img__carrusel{
+      width: 100%;
+      height: 100%;
+    }
+    .puntos__dos{
+      width: 50%;
+      height: auto;
+      flex-flow: column nowrap;
+    } 
+    .punto__dos{
+      width: 1.7em;
+      height: 1.7em;
+      font-size: 1.3em;
+      text-align: center;
+      padding: 0.2em;
+    }
+    .imagenes-dos{
+      width:100%;
+      height: 250px;
+      
+    }
+    .fotos-dos{
+      width: 100%;
+     height: 300%;
+    
+    }
+    .img__div{
+      height:calc(100%*3);
+      min-width: 60vw;
+    }
+    .img__carrusel{
+      width: 100%;
+      height: 100%;
+    }
+    .puntos-tres{
+      width: 50%;
+      height: auto;
+      flex-flow: column nowrap;
+    } 
+    .punto-tres{
+      width: 1.7em;
+      height: 1.7em;
+      font-size: 1.3em;
+      text-align: center;
+      padding: 0.2em;
+    }
+    .imagenes-tres{
+      width:100%;
+      height: 250px;
+      
+    }
+    .fotos-tres{
+      width: 100%;
+     height: 300%;
+    
+    }
+    /* ---------seccion contacto---------   */
+    .contenedor{
+      margin-top: 5vh;
+    }
+    .contacto__div{
+      width: 70%;
+    }
+    .contacto__parrafo{
+      font-size: 1.7em;
+    }
+    .contacto__h3{
+      font-size: 2.5em;
+    }
+    .contacto__h2{
+      font-size: 3em;
+    }
+   
+      .img{
+          width: 60px;
+      }
+    
+      .div{
+          width: 90%;
+      }
+    
+ 
+  /* --------footer-------- */
+  .footer{
+    width: 100%;
+    height: auto;
+    gap: 2vh;
+  }
+  .footer__div{
+    width: 80%;
+   
+    align-items: center;
+  }
+  .footer__figure{
+    width: 30vw;
+  }
+  .footer__h2{
+   
+    font-size: 1.5em;
+    line-height: 1em;
+    
+  }
+  .footer__social{
+    margin-bottom: 3vh;
+    width: 50vw;
+   
+  }
+  .social__ul{
+    width: 50vw;
+    
+  }
+  .bi{
+    width: 30px;
+  }
+  /* ----------------pg nosotros-------------- */
+  .main{
+    margin-top: 25%;
+  }
+   /* -------about----------- */
+   .abaut{
+    margin-top: 5vh;
+  }
+  .abaut__div{
+      width: 80%;
+  }
+  .abaut__h1{
+    font-size:2em ;
+  }
+  .abaut__parrafo{
+      font-size: 1em;
+  }
+  /* --------quehacemos-----------  */
+  .quehacemos{
+    margin-top: 5vw;
+    width: 90%;
+    padding-left: 5%;
+  }
+  .quehacemos__div{
+      padding: 3%;
+  }
+  .quehacemos__primera{
+      width: 90vw;
+  }
+  .quehacemos__segunda{
+      width: 90vw;
+  }
+  .quehacemos__tercera{
+      width: 90vw;
+  }
+  .quehacemos__h2{
+    font-size: 1.7em;
+    padding-top: 5vh;
+  }
+  .comotrabajamos__h2{
+    font-size: 1.7em;
+    padding-top: 5vh;
+  }
+  .quehacemos__h4{
+      width: 45vw;
+   
+    font-size: 1em;
+    
+  }
+  .quehacemos__parrafo{
+   
+    font-size: 1.1em;
+  }
+  /* ---------como trabajamos--------- */
+  .comotrabajamos{
+    height: auto;
+    padding: 2%;
+  
+  }
+  .comotrabajamos__div{
+     
+      width: 80VW;
+      margin-left: 5vw;
+  }
+  .comotrabajamos__h4{
+    width: 60vw;
+    font-size: 1em;
+    
+    
+  }
+  .comotrabajamos__parrafo{
+    
+    font-size: 1.1em;
+  }
+  .comotrabajamos__enlace{
+    font-size: 1.5em;
+    padding-bottom: 5vh;
+  }
+  .comotrabajamos__primera{
+    width:90% ;
+  }
+  .comotrabajamos__segunda{
+    width:90% ;
+  }
+  /* -------------------pg trabajos---------------------- */
+  .proyectos{
+    padding-top: 15vh;
+    height: auto;
+  }
+  .proyectos__naranja{
+    top:5rem;
+     width: 10rem;
+    height: 2em;
+  }
+  .proyectos__turquesa{
+    top: 0;
+    right: 0;
+     width: 1rem;
+    height:10rem;
+  }
+  .proyectos__berenjena{
+    
+    bottom:  0.7rem;
+     width: 10rem;
+    height: 1em;
+  }
+  
+  /* --------modales--------- */
+  /* .modal__open > div{
+    width:300px ;
+    height: auto;
+  }
+  .carrusel{
+    width:100%;
+    height: 250px;
+    
+  }
+  .grande{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+   .punto{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  } 
+  .imagenes{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos__dos{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+   .punto__dos{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  } 
+  .imagenes-dos{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos-dos{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos-tres{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto-tres{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  }  */
+  .imagenes-tres{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos-tres{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos-cuatro{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+   .punto-cuatro{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  } 
+  .imagenes-cuatro{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos-cuatro{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+    height: 100%;
+  }
+  .puntos-cinco{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+  .punto-cinco{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  } 
+  .imagenes-cinco{
+    width:100%;
+    height: 250px;
+    
+  }
+  .fotos-cinco{
+    width: 100%;
+   height: 300%;
+  
+  }
+  .img__div{
+    height:calc(100%*3);
+    min-width: 60vw;
+  }
+  .img__carrusel{
+    width: 100%;
+  height: 100%;
+  }
+  .puntos-seis{
+    width: 50%;
+    height: auto;
+    flex-flow: column nowrap;
+  } 
+   .punto-seis{
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em;
+  } 
+  /* ------------------pg contacto----------------- */
+  .contacto__contenido{
+    padding-top: 20vh;
+  }
+  .contacto__h1{
+    font-size:2.7em ;
+  }
+  .h2__info{
+    font-size: 2em;
+  }
+  .parrafo__info{
+    font-size: 1.2em;
+    width: 70vw;
+  }
+  .enlace__info{
+    font-size: 2.5em;
+  }
+  .contacto__enlace{
+    font-size:1.7em ;
+  }
+
+/* ----------pg consultas--------- */
+.titulo{
+  margin-top: 20%;
+}
+.titulo__h1{
+  font-size: 1.5em;
+}
+
+}
+   
